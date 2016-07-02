@@ -1,0 +1,79 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="notebook.basil.com.notebok.NoteViewFragment"
+    android:paddingStart="12dp"
+    android:paddingEnd="1dp"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp" >
+
+    <!-- Note Icon -->
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editNoteButton"
+        android:src="@drawable/a"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginEnd="15dp" />
+
+    <!-- Note Title -->
+    <ScrollView
+        android:layout_width= "wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/noteScrollView"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/editNoteButton"
+        android:layout_alignBottom="@+id/editNoteButton">
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Note Title"
+            android:id="@+id/editNoteTitle"
+            android:inputType="text"
+            android:minLines="1"/>
+
+    </ScrollView>
+
+    <!-- Note Body -->
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/noteScrollView"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="4dp"
+        android:id="@+id/messageScrollView"
+        android:layout_above="@+id/saveNote"
+        >
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="New Text"
+            android:minLines="3"
+
+            android:id="@+id/editNoteMessage"
+            android:textSize="18sp"
+            android:textColor="#000000"
+            android:background="@null"
+            android:inputType="textMultiLine"
+            android:gravity="top"/>
+
+    </ScrollView>
+
+    <!-- Save Button -->
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@id/saveNote"
+        android:text="@string/save_note_button"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_alignEnd="@+id/messageScrollView"/>
+</RelativeLayout>
