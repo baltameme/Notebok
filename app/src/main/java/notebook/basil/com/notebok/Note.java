@@ -1,15 +1,17 @@
 package notebook.basil.com.notebok;
 
+import java.io.Serializable;
+
 /**
  * Created by apple on 6/23/16.
  */
-public class Note {
+public class Note implements Serializable {
 
     private String title, message;
     private long dateCreatedMilli, noteId;
     private Category category;
 
-    public enum Category (PERSONAL, TECHNICHAL, QOUTE, FINANCE);
+    public enum Category {PERSONAL, TECHNICHAL, QOUTE, FINANCE};
 
 
     public Note(String title, String message, Category category) {
@@ -51,6 +53,19 @@ public class Note {
         return noteId;
     }
 
+    public int getAssociatedDrawable() {
+        return R.drawable.a;
+    }
+
+    public static int categoryToDrawable(Category noteCategory) {
+        switch (noteCategory) {
+            case TECHNICHAL:
+                return R.drawable.a;
+            default:
+                return R.drawable.a;
+        }
+    }
+
     @Override
     public String toString() {
         return
@@ -60,4 +75,6 @@ public class Note {
                 ", noteId=" + noteId +
                 ", Category Name =" + category.name();
     }
+
+
 }
