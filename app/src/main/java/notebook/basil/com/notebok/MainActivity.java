@@ -9,6 +9,8 @@ import android.view.MenuItem;
 public class MainActivity extends AppCompatActivity {
 
     public  enum FragmentToLaunch {VIEW, EDIT};
+    public  static final String NOTE_FRAGMENT_TO_LOAD_EXTRA = "fragType";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

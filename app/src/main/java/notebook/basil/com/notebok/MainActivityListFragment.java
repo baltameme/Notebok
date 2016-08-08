@@ -77,10 +77,10 @@ public class MainActivityListFragment extends ListFragment {
         // Check passed view type.
         switch (ftl) {
             case VIEW:
-                intent.putExtra("fragType", MainActivity.FragmentToLaunch.VIEW);
+                intent.putExtra(MainActivity.NOTE_FRAGMENT_TO_LOAD_EXTRA, MainActivity.FragmentToLaunch.VIEW);
                 break;
             case EDIT:
-                intent.putExtra("fragType", MainActivity.FragmentToLaunch.EDIT);
+                intent.putExtra(MainActivity.NOTE_FRAGMENT_TO_LOAD_EXTRA, MainActivity.FragmentToLaunch.EDIT);
                 break;
         }
 

@@ -1,5 +1,6 @@
 package notebook.basil.com.notebok;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -17,12 +18,30 @@ public class NoteDetailActivity extends AppCompatActivity {
 
     private void createAndFragment() {
 
+        Intent intent = getIntent();
+        MainActivity.FragmentToLaunch fragmentToLaunch =
+                (MainActivity.FragmentToLaunch) intent.getSerializableExtra(MainActivity.NOTE_FRAGMENT_TO_LOAD_EXTRA);
+
+
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
-        NoteViewFragment noteViewFragment = new NoteViewFragment();
-        setTitle(R.string.viewFragmentTitle);
-        fragmentTransaction.add(R.id.note_container, noteViewFragment, "NOTE_VIEW_FRAGMENT");
+
+        // Create  and add note view/edit fragment to note detail activity
+        switch (fragmentToLaunch) {
+
+            case EDIT:
+                NoteEditFragment noteEditFragment = new NoteEditFragment();
+                setTitle(R.string.editFragmentTitle);
+                fragmentTransaction.add(R.id.note_container, noteEditFragment, "NOTE_EDIT_FRAGMENT");
+                break;
+
+            case VIEW:
+                NoteViewFragment noteViewFragment = new NoteViewFragment();
+                setTitle(R.string.viewFragmentTitle);
+                fragmentTransaction.add(R.id.note_container, noteViewFragment, "NOTE_VIEW_FRAGMENT");
+                break;
+        }
 
         fragmentTransaction.commit();
     }
