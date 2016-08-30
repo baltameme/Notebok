@@ -1,5 +1,6 @@
 package notebook.basil.com.notebok;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -8,7 +9,7 @@ import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity {
 
-    public  enum FragmentToLaunch {VIEW, EDIT};
+    public  enum FragmentToLaunch {VIEW, EDIT, CREATE};
     public  static final String NOTE_FRAGMENT_TO_LOAD_EXTRA = "fragType";
 
 
@@ -46,6 +47,11 @@ public class MainActivity extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
+        } else if (id == R.id.action_add_note) {
+            Intent intent = new Intent(this, NoteDetailActivity.class);
+            intent.putExtra(MainActivity.NOTE_FRAGMENT_TO_LOAD_EXTRA, FragmentToLaunch.CREATE);
+            startActivity(intent);
+            return  true;
         }
 
         return super.onOptionsItemSelected(item);

@@ -59,8 +59,19 @@ public class Note implements Serializable {
 
     public static int categoryToDrawable(Category noteCategory) {
         switch (noteCategory) {
-            case TECHNICHAL:
+
+            case PERSONAL:
                 return R.drawable.a;
+
+            case TECHNICHAL:
+                return R.drawable.b;
+
+            case QOUTE:
+                return R.drawable.c;
+
+            case FINANCE:
+                return R.drawable.d;
+
             default:
                 return R.drawable.a;
         }
